@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import yaml from "js-yaml";
 import {ActivatedRoute, Router} from "@angular/router";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +17,23 @@ export class AppInitService {
 
   init(): Promise<any> {
     return new Promise<void>(async (resolve) => {
-
-      this.http.get('assets/user-prefs.yml', {responseType: 'text'}).subscribe(data => {
-        try {
-          const doc:any = yaml.load(data);
-          let params:any = {}
-          for(const val of doc.prefs){
-            params[val.name] = val.default_value
+      if(environment.production) resolve()
+      else {
+        console.log('dev env')
+        this.http.get('assets/user-prefs.yml', {responseType: 'text'}).subscribe(data => {
+          try {
+            const doc: any = yaml.load(data);
+            let params: any = {}
+            for (const val of doc.prefs) {
+              params[val.name] = val.default_value
+            }
+            this.navigateToFoo(params)
+          } catch (e) {
+            console.log(e);
           }
-          this.navigateToFoo(params)
-        } catch (e) {
-          console.log(e);
-        }
-        resolve();
-      })
+          resolve();
+        })
+      }
 
     });
   }

@@ -1,10 +1,10 @@
 {
   "name": "gadget-harness",
-  "version": "0.0.17",
+  "version": "0.0.20",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "apv update patch && ng build && node utils/yml2xml.js src/assets/user-prefs.yml dist && npm run change-path",
+    "build": "apv update patch && ng build && npm run change-path && node utils/yml2xml.js src/assets/user-prefs.yml dist",
     "change-path": "node utils/changeBasePath.js",
     "deploy": "npm run build && node utils/deploy.js",
     "watch": "ng build --watch --configuration development",
