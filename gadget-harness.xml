@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-<ModulePrefs title="RevelDigital Google Calendar Gadget" title_url="https://support.reveldigital.com/hc/en-us/articles/360001531431-Google-Calendar-Integration" version="0.0.19" description="Lists your current Google Calendar events in chronological order" author="RevelDigital" background="transparent">
+<ModulePrefs title="RevelDigital Google Calendar Gadget" title_url="https://support.reveldigital.com/hc/en-us/articles/360001531431-Google-Calendar-Integration" version="0.0.20" description="Lists your current Google Calendar events in chronological order" author="RevelDigital" background="transparent">
     <Locale messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Locale lang="ru" messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Require feature="reveldigital" />
@@ -20,7 +20,7 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <title>GadgetHarness</title>
-  <base href="/">
+  <base href="https://RevelDigital.github.io/ng-gadget-quick-start/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style type="text/css">
@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="styles.ef46db3751d8e999.css"></head>
 <body>
   <app-root></app-root>
-<script src="runtime.a403f499a2c74161.js" type="module"></script><script src="polyfills.53e30f03493ce886.js" type="module"></script><script src="main.a30d4afbef209102.js" type="module"></script>
+<script src="runtime.a403f499a2c74161.js" type="module"></script><script src="polyfills.53e30f03493ce886.js" type="module"></script><script src="main.427f2af9c4bf8c9e.js" type="module"></script>
 
 </body></html>
 ]]>
