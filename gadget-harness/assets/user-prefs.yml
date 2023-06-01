@@ -1,0 +1,60 @@
+title: RevelDigital Google Calendar Gadget
+title_url: https://support.reveldigital.com/hc/en-us/articles/360001531431-Google-Calendar-Integration
+description: Lists your current Google Calendar events in chronological order
+author: RevelDigital
+background: transparent
+
+requirements:
+  - reveldigital
+
+locales:
+  - messages: https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml
+
+  - lang: ru
+    messages: https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml
+
+prefs:
+  - name: calendarUrl
+    display_name: Google Calendar ID or URL
+    datatype: string
+    default_value: none
+    required: true
+
+  - name: showHeader
+    display_name: Show Table Header
+    datatype: bool
+    default_value: true
+    required: true
+
+  - name: body-style
+    display_name: Body Style
+    datatype: style
+    default_value: font-family:Verdana;color:rgb(255, 255, 255);font-size:18px;
+    required: true
+
+  - name: scrollSpeed
+    display_name: Scroll Speed
+    datatype: enum
+    default_value: none
+    required: true
+    options:
+      - value: fastest
+        display_value: Fastest
+
+      - value: fast
+        display_value: Fast
+
+      - value: medium
+        display_value: Medium
+
+  - name: rdW
+    display_name: Width
+    datatype: hidden
+    default_value: 280
+    required: false
+
+  - name: rdH
+    display_name: Height
+    datatype: hidden
+    default_value: 190
+    required: true
