@@ -8,7 +8,7 @@ import {PlayerClientService} from "@reveldigital/player-client";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // @ViewChild('container', {static:false, read: ElementRef }) container: ElementRef;
+  @ViewChild('container', { static: false }) container: ElementRef;
 
 
   @HostBinding('style.width.px')
@@ -20,14 +20,9 @@ export class AppComponent {
   public version: string = packageJson.version;
   title = 'GadgetHarness'+`_${this.version}`;
   constructor(public player: PlayerClientService) {
+    console.log('Version:',this.version)
     if (typeof gadgets !== 'undefined') {
       this.prefs = new gadgets.Prefs();
-      console.log(this.prefs, 'test')
     }
-    console.log(this.version)
-    this.player.onCommand$.subscribe((command=>{
-      console.log(command)
-    }))
-
   }
 }

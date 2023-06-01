@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import * as ymal from "js-yaml";
 import yaml from "js-yaml";
-import pjson from "../../../package.json";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Injectable({
@@ -18,15 +16,14 @@ export class AppInitService {
 
   init(): Promise<any> {
     return new Promise<void>(async (resolve) => {
+
       this.http.get('assets/user-prefs.yml', {responseType: 'text'}).subscribe(data => {
         try {
           const doc:any = yaml.load(data);
-          console.log(doc.prefs)
           let params:any = {}
           for(const val of doc.prefs){
             params[val.name] = val.default_value
           }
-          console.log(params)
           this.navigateToFoo(params)
         } catch (e) {
           console.log(e);
@@ -38,6 +35,35 @@ export class AppInitService {
   }
 
   navigateToFoo(params:any){
+    (<any>window).gadgets  =
+
+        {
+
+          Prefs : class  {
+            getString(key: string) {return this.getParameterByName(key)}
+            getArray(key: string) {return this.getParameterByName(key).split(',')}
+
+            getBool(key: string){return this.getParameterByName(key) === 'true'}
+
+            getCountry(){}
+
+            getFloat(key: string){return parseFloat(this.getParameterByName(key))}
+
+            getInt(key: string) {return parseInt(this.getParameterByName(key))}
+
+            getLang(){}
+
+            getParameterByName(name: string, url = window.location.href):string {
+              name = name.replace(/[\[\]]/g, '\\$&');
+              let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                  results = regex.exec(url);
+              if (!results) return '';
+              if (!results[2]) return '';
+              return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+          }
+
+        }
     // changes the route without moving from the current view or
     // triggering a navigation event,
     this._router.navigate([], {

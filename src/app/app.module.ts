@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import {AppInitService} from "./services/app-init.service";
 import {HttpClientModule} from "@angular/common/http";
 import {PlayerClientModule} from "@reveldigital/player-client";
-
+declare global {
+  interface Window { MyNamespace: any; }
+}
 export function initializeApp(appInitService: AppInitService) {
   return (): Promise<any> => {
     return appInitService.init();
