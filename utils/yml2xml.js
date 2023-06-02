@@ -1,11 +1,16 @@
 const yaml = require('js-yaml');
+var HTMLParser = require('node-html-parser');
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
 const pjson = require('../package.json');
 
+
 try {
   const doc = yaml.load(fs.readFileSync(process.argv[2], 'utf8'));
   const html = fs.readFileSync(process.argv[3] + `/${pjson.name}/index.html`);
+
+
+
   fs.writeFileSync(`${process.argv[3]}/${pjson.name}/${pjson.name}.xml`, processYML(doc, html));
 } catch (e) {
   console.log(e);
@@ -25,6 +30,7 @@ function processYML(json, html) {
     author: json.author,
     background: json.background
   });
+
   if (json.locales) {
     for (let val of json.locales) {
       const locale = modulePrefs.ele('Locale');
@@ -34,11 +40,13 @@ function processYML(json, html) {
       locale.att('messages', val.messages);
     }
   }
+
   if (json.requirements) {
     for (let val of json.requirements) {
       modulePrefs.ele('Require', { feature: val });
     }
   }
+
   if (json.prefs) {
     for (let val of json.prefs) {
       const userPref = modulePrefs.ele('UserPref', {
@@ -58,7 +66,44 @@ function processYML(json, html) {
       }
     }
   }
-  module.ele('Content', { type: 'html' }).ele({ '$': html });
+
+  modulePrefs.ele('UserPref', {
+    name: 'rdW',
+    display_name: 'Width',
+    datatype: 'hidden',
+    default_value: 280,
+    required: true
+  });
+  modulePrefs.ele('UserPref', {
+    name: 'rdH',
+    display_name: 'Height',
+    datatype: 'hidden',
+    default_value: 190,
+    required: true
+  });
+  modulePrefs.ele('UserPref', {
+    name: 'rdKey',
+    datatype: 'hidden'
+  });
+  modulePrefs.ele('UserPref', {
+    name: 'ForeColor',
+    datatype: 'hidden'
+  });
+  modulePrefs.ele('UserPref', {
+    name: 'BackColor',
+    datatype: 'hidden'
+  });
+  
+  var htmlRoot = HTMLParser.parse(html);
+  console.log(htmlRoot.querySelector('style').toString());
+  console.log(htmlRoot.querySelector('script').toString());
+  console.log(htmlRoot.querySelector('body').toString());
+
+  module.ele('Content', { type: 'html' }).ele({ '$':
+    htmlRoot.querySelector('style').toString() +
+    htmlRoot.querySelector('script').toString() +
+    htmlRoot.querySelector('body').toString()
+  });
 
   return root.end({ prettyPrint: true });
 }

@@ -6,6 +6,8 @@ background: transparent
 
 requirements:
   - reveldigital
+  - offline
+  - webfont
 
 locales:
   - messages: https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml
@@ -17,7 +19,7 @@ prefs:
   - name: myStringPref
     display_name: Sample string preference
     datatype: string
-    default_value: String Pref
+    default_value: test string
     required: true
 
   - name: myBoolPref
@@ -46,15 +48,3 @@ prefs:
 
       - value: medium
         display_value: Medium
-
-  - name: rdW
-    display_name: Width
-    datatype: hidden
-    default_value: 280
-    required: true
-
-  - name: rdH
-    display_name: Height
-    datatype: hidden
-    default_value: 190
-    required: true

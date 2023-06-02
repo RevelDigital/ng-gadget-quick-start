@@ -44,6 +44,7 @@ export class AppInitService {
 
       Prefs: class {
         getString(key: string) { return this.getParameterByName(key) }
+
         getArray(key: string) { return this.getParameterByName(key).split(',') }
 
         getBool(key: string) { return this.getParameterByName(key) === 'true' }
