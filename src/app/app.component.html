@@ -1,3 +1,8 @@
 <div #container class="container" [style.width.px]="width" [style.height.px]="height">
     <h1>{{ title }}</h1>
+
+    <h2>myStringPref: {{ prefs.getString('myStringPref') }}</h2>
+    <h2>myBoolPref: {{ prefs.getString('myBoolPref') }}</h2>
+    <h2>myEnumPref: {{ prefs.getString('myEnumPref') }}</h2>
+    <h2>myStylePref: {{ prefs.getString('myStylePref') }}</h2>
 </div>

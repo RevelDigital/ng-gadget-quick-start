@@ -21,6 +21,7 @@ export class AppComponent {
 
   constructor(public player: PlayerClientService) {
     console.log('Loaded:', this.title)
+    
     if (typeof gadgets !== 'undefined') {
       this.prefs = new gadgets.Prefs();
     }
