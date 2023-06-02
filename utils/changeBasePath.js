@@ -10,7 +10,7 @@ gitRemoteOriginUrl().then(name => {
     pjson.projects.GadgetHarness.architect.build.configurations.production.baseHref = path;
     pjson.projects.GadgetHarness.architect.build.configurations.production.deployUrl = path;
 
-    fs.writeFile('./angular.json', JSON.stringify(pjson), function writeJSON(err) {
+    fs.writeFile('./angular.json', JSON.stringify(pjson, null, 4), function writeJSON(err) {
         if (err) return console.log(err);
     });
 })
