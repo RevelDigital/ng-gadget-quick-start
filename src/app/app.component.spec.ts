@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+    declarations: [AppComponent],
+    teardown: { destroyAfterEach: false }
+}));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
