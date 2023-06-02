@@ -19,7 +19,7 @@ prefs:
   - name: myStringPref
     display_name: Sample string preference
     datatype: string
-    default_value: String Pref
+    default_value: test string
     required: true
 
   - name: myBoolPref
