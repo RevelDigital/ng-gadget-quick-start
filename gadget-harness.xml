@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.39" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
+  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.41" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
     <Locale messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Locale lang="ru" messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Require feature="reveldigital"/>
@@ -20,13 +20,7 @@
     <UserPref name="ForeColor" datatype="hidden"/>
     <UserPref name="BackColor" datatype="hidden"/>
   </ModulePrefs>
-  <Content type="html"><![CDATA[<html lang="en"><head>
-  <meta charset="utf-8">
-  <title>GadgetHarness</title>
-  <base href="https://RevelDigital.github.io/ng-gadget-quick-start/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style type="text/css">
+  <Content type="html"><![CDATA[<style type="text/css">
     /*noinspection ALL*/
     html {
       width: __UP_rdW__px;
@@ -41,12 +35,9 @@
       height: __UP_rdH__px;
       overflow: hidden;
     }
-  </style>
-<link rel="stylesheet" href="styles.ef46db3751d8e999.css"></head>
-
-<body>
+  </style><script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><body>
   <app-root></app-root>
-<script src="runtime.4318fa7b58ff526e.js" type="module"></script><script src="polyfills.f541abf399692574.js" type="module"></script><script src="main.a58073dc179ec0a5.js" type="module"></script>
+<script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/polyfills.f541abf399692574.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/main.5549eec841b43f39.js" type="module"></script>
 
-</body></html>]]></Content>
+</body>]]></Content>
 </Module>
