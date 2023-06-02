@@ -35,7 +35,7 @@ prefs:
   - name: scrollSpeed
     display_name: Scroll Speed
     datatype: enum
-    default_value: none
+    default_value: fast
     required: true
     options:
       - value: fastest
