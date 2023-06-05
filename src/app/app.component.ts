@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
-import packageJson from '../../package.json';
 import { PlayerClientService } from "@reveldigital/player-client";
+import packageJson from '../../package.json';
+
 
 @Component({
   selector: 'app-root',
@@ -20,8 +21,8 @@ export class AppComponent {
   prefs: any;
 
   constructor(public player: PlayerClientService) {
-    console.log('Loaded:', this.title)
-    
+    console.log('Loaded: ', this.title)
+
     if (typeof gadgets !== 'undefined') {
       this.prefs = new gadgets.Prefs();
     }

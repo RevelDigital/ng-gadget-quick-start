@@ -7,7 +7,7 @@ describe('AppComponent', () => {
     imports: [RouterTestingModule],
     declarations: [AppComponent],
     teardown: { destroyAfterEach: false }
-}));
+  }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
