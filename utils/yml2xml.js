@@ -1,5 +1,5 @@
 const yaml = require('js-yaml');
-var HTMLParser = require('node-html-parser');
+const HTMLParser = require('node-html-parser');
 const fs = require('fs');
 const { create } = require('xmlbuilder2');
 const pjson = require('../package.json');

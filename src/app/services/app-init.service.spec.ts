@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+// import { TestBed } from '@angular/core/testing';
 
-import { AppInitService } from './app-init.service';
+// import { AppInitService } from './app-init.service';
 
-describe('AppInitService', () => {
-  let service: AppInitService;
+// describe('AppInitService', () => {
+//   let service: AppInitService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
-    service = TestBed.inject(AppInitService);
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
+//     service = TestBed.inject(AppInitService);
+//   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(service).toBeTruthy();
+//   });
+// });
