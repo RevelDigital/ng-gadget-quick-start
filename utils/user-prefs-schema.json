@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the gadget",
+      "required": true
+    },
+    "title_url": {
+      "type": "string",
+      "description": "Support site URL for gadget"
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string",
+      "description": "Background color of gadget (hex or color name)",
+      "required": true
+    },
+    "requirements": {
+      "description": "",
+      "type": "array",
+      "items": { "$ref": "#/$defs/reqs" }
+    },
+    "locales": {
+      "description": "",
+      "type": "array",
+      "items": { "$ref": "#/$defs/locs" }
+    },
+    "prefs": {
+      "type": "array",
+      "description": "User prefs",
+      "required": true,
+      "items": { "$ref": "#/$defs/pref" }
+    }
+  },
+  "$defs": {
+    "reqs": {
+      "type": "string"
+    },
+    "locs": {
+      "type": "object",
+      "required": [
+        "messages"
+      ],
+      "properties": {
+        "messages": {
+          "type": "string",
+          "description": "URL for translation xml"
+        },
+        "lang": {
+          "type": "string",
+          "description": "Language code"
+        }
+      }
+    },
+    "pref": {
+      "type": "object",
+      "required": [
+        "name",
+        "display_name",
+        "datatype"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name used to reference value in script"
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Name displayed in Revel Template editor"
+        },
+        "datatype": {
+          "type": "string",
+          "description": "Options are bool, enum, style, string or hidden",
+          "enum" : ["string", "bool", "style", "enum", "hidden"]
+        },
+        "default_value": {
+          "description": "Value if no value is supplied"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "datatype": {
+            "const":"enum"}
+        }
+      },
+      "then": {
+        "required": [
+          "options"
+        ]
+      }
+    },
+    "option": {
+      "type": "object",
+      "required": [
+        "value",
+        "display_value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "display_value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
