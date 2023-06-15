@@ -62,6 +62,10 @@ function processYML(json, html) {
           });
         }
       }
+
+      if (val.depends) {
+        appendDepends(val.depends, userPref);
+      }
     }
   }
 
@@ -96,9 +100,32 @@ function processYML(json, html) {
   module.ele('Content', { type: 'html' }).ele({
     '$':
       htmlRoot.querySelector('style').toString() +
-      htmlRoot.querySelector('script').toString() +
+      htmlRoot.querySelector('link').toString() +
       htmlRoot.querySelector('body').toString()
   });
 
   return root.end({ prettyPrint: true });
+}
+
+
+function appendDepends(depends, el) {
+
+  for (let dep of depends) {
+    const d = el.ele('DependsOn', {
+      name: dep.name,
+      type: dep.any_of ? 'any_of' : dep.all_of ? 'all_of' : 'none_of'
+    });
+
+    var arr = [].concat(dep.any_of, dep.all_of, dep.none_of).filter(o => o != null);
+    for (let a of arr) {
+      if (a.values) {
+        for (let val of a.values) {
+          d.ele('Value').txt(val);
+        }
+      }
+      if (a.depends) {
+        appendDepends(a.depends, d);
+      }
+    }
+  }
 }

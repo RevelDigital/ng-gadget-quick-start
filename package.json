@@ -1,14 +1,16 @@
 {
   "name": "gadget-harness",
-  "version": "0.0.43",
+  "version": "0.0.51",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "apv update patch && npm run change-path && ng build && node utils/yml2xml.js src/assets/user-prefs.yml dist",
+    "build": "apv update patch && npm run change-path && ng build --configuration production && node utils/yml2xml.js src/assets/user-prefs.yml dist",
     "change-path": "node utils/changeBasePath.js",
     "deploy": "npm run build && ng deploy --no-build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:gadget": "npm run change-path && ng build && node utils/yml2xml.js src/assets/user-prefs.yml dist",
+    "deploy:gadget": "npm run build:gadget && ng deploy --no-build"
   },
   "private": true,
   "dependencies": {
@@ -22,30 +24,32 @@
     "@angular/platform-browser": "~13.4.0",
     "@angular/platform-browser-dynamic": "~13.4.0",
     "@angular/router": "~13.4.0",
-    "@reveldigital/player-client": "0.0.16-beta.1",
+    "@reveldigital/player-client": "1.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.11",
     "@angular/cli": "~13.3.11",
     "@angular/compiler-cli": "~13.4.0",
+    "@reveldigital/gadget-types": "^1.0.0",
     "@types/jasmine": "~4.3.0",
+    "angular-cli-ghpages": "^1.0.6",
     "appversion": "^1.7.1",
-    "git-remote-origin-url": "^4.0.0",
-    "git-repo-name": "^1.0.1",
     "gh-pages": "^5.0.0",
     "gh-pages-deploy": "^0.5.1",
-    "angular-cli-ghpages": "1.0.6",
-    "xmlbuilder2": "^3.1.1",
-    "node-html-parser": "6.1.5",
+    "git-remote-origin-url": "^4.0.0",
+    "git-repo-name": "^1.0.1",
     "jasmine-core": "~4.6.0",
+    "js-yaml": "^4.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.6.4"
+    "node-html-parser": "6.1.5",
+    "typescript": "~4.6.4",
+    "xmlbuilder2": "^3.1.1"
   }
 }
