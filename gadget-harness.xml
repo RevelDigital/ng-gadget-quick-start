@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.42" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
+  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.46" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
     <Locale messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Locale lang="ru" messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Require feature="reveldigital"/>
     <Require feature="offline"/>
     <Require feature="webfont"/>
     <UserPref name="myStringPref" display_name="Sample string preference" datatype="string" default_value="test string" required="true"/>
-    <UserPref name="myBoolPref" display_name="Sample boolean preference" datatype="bool" default_value="true" required="true"/>
+    <UserPref name="myBoolPref" display_name="Sample boolean preference" datatype="bool" default_value="true" required="true">
+      <DependsOn name="myEnumPref" type="any_of">
+        <Value>fast</Value>
+      </DependsOn>
+    </UserPref>
     <UserPref name="myStylePref" display_name="Sample style preference" datatype="style" default_value="font-family:Verdana;color:rgb(255, 255, 255);font-size:18px;" required="true"/>
     <UserPref name="myEnumPref" display_name="Sample enum preference" datatype="enum" default_value="fast" required="true">
       <EnumValue value="fastest" display_value="Fastest"/>
@@ -35,9 +39,9 @@
       height: __UP_rdH__px;
       overflow: hidden;
     }
-  </style><script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><body>
+  </style><link rel="icon" type="image/x-icon" href="favicon.ico"><body>
   <app-root></app-root>
-<script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/polyfills.f541abf399692574.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/main.82403e8562ca739d.js" type="module"></script>
+<script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/polyfills.f541abf399692574.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/main.5e3f4d8cc9d442b0.js" type="module"></script>
 
 </body>]]></Content>
 </Module>
