@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.47" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
+  <ModulePrefs title="My Gadget" title_url="https://mysupporturl.org" version="0.0.48" description="Describe the purpose of your gadget here" author="My Organization" background="transparent">
     <Locale messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Locale lang="ru" messages="https://reveldigital.github.io/reveldigital-gadgets/ALL_ALL.xml"/>
     <Require feature="reveldigital"/>
@@ -41,7 +41,7 @@
     }
   </style><link rel="icon" type="image/x-icon" href="favicon.ico"><body>
   <app-root></app-root>
-<script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/polyfills.f541abf399692574.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/main.a32501e5d79497d5.js" type="module"></script>
+<script src="https://RevelDigital.github.io/ng-gadget-quick-start/runtime.4318fa7b58ff526e.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/polyfills.f541abf399692574.js" type="module"></script><script src="https://RevelDigital.github.io/ng-gadget-quick-start/main.a0a4ac28bd9102f4.js" type="module"></script>
 
 </body>]]></Content>
 </Module>
